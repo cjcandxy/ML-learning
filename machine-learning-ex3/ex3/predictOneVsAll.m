@@ -30,7 +30,16 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
+h = X * all_theta';
+h_max = max(h, [], 2);
 
+for i=1:size(X,1)
+   for j=1:num_labels
+      if h_max(i)==h(i,j)
+	     p(i)=j;
+		 break;
+    end
+end
 
 
 
